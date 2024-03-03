@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --form-bg-color :  #b2adf8;
+    --head-color: #c300ff;
+    --button-bg--color: #f0f0f0;
+    --button-color : #000000;
+    --white-color : #ffffff;
+}
+
+#myForm{
+    padding: 2rem;
+}
+
+.head{
+    color: var(--head-color);
+}
+
+#add, #save{
+    background-color: var(--form-bg-color);
+    border-color: var(--form-bg-color);
+}
+
+#add:hover, #save:hover{
+    background-color: var(--head-color);
+    border-color: var(--white-color);
+}
+
+#close{
+    background-color: var(--button-bg-color);
+    color: var(--button-color);
+}
+
+#close:hover{
+    background-color: var(--button-color);
+    color: var(--button-bg--color);
+}
+
+.student-form{
+    background-color: var(--form-bg-color);
+    padding: 4rem;
+}
+
+.student{
+    padding: 2rem;
+}
+
+.stu-form{
+    margin-bottom: 3rem;
+}
+
+.student-detail-2{
+    margin-top: 1rem;
+}
+
+.education{
+    padding: 2rem;
+}
+
+.table{
+    --bs-table-bg: var(--form-bg-color);
+}
+
+input[type="button"]{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 1rem;
+}
+
+.button{
+    padding: 0.5rem 1rem;
+}
+
+.button:hover{
+    background-color: var(--button-color);
+    color: var(--white-color);
+}
+
+#display_submit{
+    display: block;
+}
+
+#save{
+    display: none;
+}
+
+/* to adjust dob column in datatable */
+table.dataTable th.dt-type-date, table.dataTable td.dt-type-date{
+    text-align: left;
+}
+
+/* to hidden table overflow */
+div.dt-container div.dt-layout-row.dt-layout-table {
+    overflow-y: hidden;
+}
+
+/* Responsive */
+@media (max-width : 992px){
+    .form-control{
+        margin-bottom: 1rem;
+    }
+    .student-detail-2{
+        margin-top: 0rem;
+    }
+}

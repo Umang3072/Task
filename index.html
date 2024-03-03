@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3 JS</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-2.0.1/datatables.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
+</head>
+<body>
+    <form action=""  id="myForm" method="get" autocomplete="on">
+
+        <div class="student-table">
+            <div class="head mb-3 d-flex justify-content-between">
+                <h3>Student Table</h3>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="add">ADD</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table" id="studentTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Date Of Birth</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Graduation Year</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="record_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex">
+                        <div class="text-center">
+                            <h1>Fill this Student Form...</h1>
+                        </div>
+                        <input type="button" value="&times;" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    </div>
+                    <div class="modal-body">
+                        <div class="student-form">
+                            <div class="student">
+                                <div class="text-center stu-form">
+                                    <h1 class="text-white">Student Form</h1>
+                                </div>
+                                <div class="row student-detail-1">
+                                    <div class="col-lg-4">
+                                        <label for="firstname"><h3>First Name</h3></label>
+                                        <input type="text" class="form-control" placeholder="Enter your First Name" aria-label="First name" id="fname" required>
+                                        <p id="fname-error" style="color: red;"></p>
+                                    </div> 
+                                    <div class="col-lg-4">
+                                        <label for="lastname"><h3>Last Name</h3></label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Last Name" aria-label="Last name" id="lname" required>
+                                        <p id="lname-error" style="color: red;"></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="dateofbirth"><h3>Date Of Birth</h3></label>
+                                        <input type="date" class="form-control" aria-label="Date Of Birth" id="dob" required>
+                                        <p id="age-18-error" style="color: red;"></p>
+                                    </div>
+                                </div>
+                                <div class="row student-detail-2">
+                                    <div class="col-lg-4">
+                                        <label for="email"><h3>Email</h3></label>
+                                        <input type="email" class="form-control" placeholder="Enter Your Email" aria-label="Email" id="email" required>
+                                        <p id="email-error" style="color: red;"></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="address"><h3>Address</h3></label>
+                                        <textarea type="textarea" class="form-control" placeholder="Enter Your Address" aria-label="Address" id="address" required></textarea>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="graduation-year"><h3>Graduation Year</h3></label>
+                                        <input type="month" min="2022-01" max="2024-12" value="2024-02" class="form-control" aria-label="Graduation Year" id="graduation-year" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="education">
+                                <div class="form-name mb-3 d-flex justify-content-between text-white">
+                                    <h1>Education:</h1>
+                                    <input type="button" value="+" id="addNewRowInEducation">
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table" id="educ-table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Degree/Board</th>
+                                            <th scope="col">School/College</th>
+                                            <th scope="col">Strat Date</th>
+                                            <th scope="col">Passout Year</th>
+                                            <th scope="col">Percentage</th>
+                                            <th scope="col">Backlog</th>
+                                            <th scope="col">delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="educ-body">
+                                          <tr>
+                                            <th><input type="text" name="degreeBoard" class="form-control" placeholder="10th" aria-label="Degree/Board" required></th>
+                                            <td><input type="text" name="schoolCollage" class="form-control" placeholder="Enter Your School/College Name" aria-label="School/College" required></td>
+                                            <td><input type="month" name="startDate" class="form-control" aria-label="Start Date" required></td>
+                                            <td><input type="month" name="passoutYear" class="form-control" aria-label="Passout Year" required></td>
+                                            <td><input type="number" name="percentage" class="form-control" min="0" max="100" placeholder="Do not use % sign" aria-label="Percentage" required></td>
+                                            <td><input type="number" name="backlog" class="form-control" min="0" max="18" placeholder="If any" aria-label="Backlog" required></td>
+                                            <td><input type="button" value="*"></td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row"><input type="text" name="degreeBoard" class="form-control" placeholder="12th" aria-label="Degree/Board" required></th>
+                                            <td><input type="text" name="schoolCollage" class="form-control" placeholder="Enter Your School/College Name" aria-label="School/College" required></td>
+                                            <td><input type="month" name="startDate" class="form-control" aria-label="Start Date" required></td>
+                                            <td><input type="month" name="passoutYear" class="form-control" aria-label="Passout Year" required></td>
+                                            <td><input type="number" name="percentage" class="form-control" min="0" max="100" placeholder="Do not use % sign" aria-label="Percentage" required></td>
+                                            <td><input type="number" name="backlog" class="form-control" min="0" max="18" placeholder="If any" aria-label="Backlog" required></td>
+                                            <td><input type="button" value="*"></td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="d-flex mt-3 justify-content-center">
+                                    <button class="button rounded" type="submit" id="display_submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-2.0.1/datatables.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="./assets/js/custom.js"></script>
+    
+
+</body>
+</html>
